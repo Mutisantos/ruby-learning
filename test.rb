@@ -68,7 +68,7 @@ end
 
 
 puts "nombre ñor:"
-name = gets.chomp
+name = gets.chomp #Recorta los saltos de linea
 arreglo = Array.new [1,2,3,4,5,6,'AAA']
 valor = saludoEach(name, arreglo)
 puts valor
