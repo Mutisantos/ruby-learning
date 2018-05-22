@@ -47,7 +47,7 @@ def crearArreglos
 
 end    
 
-#Funcion de saludo y arreglos
+#Funcion de saludo y arreglos con Each
 def saludoEach (valor, arreglo)
     cadena = "-Hola Each:" + valor
     arreglo.each do |elem|
@@ -56,7 +56,7 @@ def saludoEach (valor, arreglo)
     return cadena
 end
 
-#Funcion de saludo y arreglos
+#Funcion de saludo y arreglos con for
 def saludoFor (valor, arreglo)
     cadena = "-Hola For:" + valor
     for elem in arreglo
@@ -65,12 +65,38 @@ def saludoFor (valor, arreglo)
     return cadena
 end
 
+#Funcion de saludo y arreglos con while
+def saludoWhile (valor, arreglo)
+    cadena = "-Hola While:" + valor
+    i = 0
+    while i < arreglo.size do
+        cadena = cadena + arreglo[i].to_s
+        i+=1
+    end
+    return cadena
+end
+
+#Funcion de saludo y arreglos con until
+def saludoUntil (valor, arreglo)
+    cadena = "-Hola Until:" + valor
+    i = 0
+    until i == arreglo.size do
+        cadena = cadena + arreglo[i].to_s
+        i+=1
+    end
+    return cadena
+end
+
 
 
 puts "nombre ñor:"
 name = gets.chomp #Recorta los saltos de linea
-arreglo = Array.new [1,2,3,4,5,6,'AAA']
+arreglo = Array.new [1,2,3,4,-5,6.52,'AAA']
 valor = saludoEach(name, arreglo)
 puts valor
 valor = saludoFor(name, arreglo)
+puts valor
+valor = saludoWhile(name, arreglo)
+puts valor
+valor = saludoUntil(name, arreglo)
 puts valor
