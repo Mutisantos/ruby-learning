@@ -1,3 +1,4 @@
+## Arrays
 a = [1,2,3,4,5,6]
 
 puts a
@@ -61,3 +62,29 @@ puts a & b #La intersección de los dos arreglos
 puts "Union A n B"
 puts a | b #La union de los dos conjuntos
 
+puts "Operación al conjunto"
+puts a * 2 #Duplica los elementos del conjuto
+puts a * " cadena \n" #llena los espacios entre elementos con la cadena
+puts a * ","
+
+
+#Recorrer el arreglo usando el indice 
+a.each_with_index{|index,value| puts "indice: #{index} - valor: #{value}"}
+
+a = [1,2,3,[4,5,6]]
+puts a.flatten! #Simplifica la representacion del arreglo
+
+
+##---HASHES
+##Los hashes funcionan como diccionarios o mapas en ruby, con asociacion de llave/valor
+
+hash = {'llaveString':'valorCadena',millave:'valorLlaveSimple', :llaveFlecha => 'valorFlecha=>'}
+
+puts hash[:llaveString]
+puts hash[:millave]
+puts hash[:llaveFlecha]#Deprecated
+
+mergeHash = {"llavecin":"valorcin"}
+
+puts hash.merge(mergeHash) #Unir dos hashes entre si
+puts hash.to_a * ","#Pasa el hash a un arreglo, tanto llaves como valores
