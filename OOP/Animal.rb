@@ -38,7 +38,7 @@ class Animal
     #public end
 
 
-    #Metodos protegidos son heredables
+    #Metodos protegidos son heredables 
     protected #Todos los metodos despues de protected son protegidos
     def metodoProtegido1()
         "Este es un metodo de la clase padre"
