@@ -41,7 +41,11 @@ class Animal
     #Metodos protegidos son heredables
     protected #Todos los metodos despues de protected son protegidos
     def metodoProtegido1()
+        "Este es un metodo de la clase padre"
+    end
 
+    def respirar()
+        "cofcof"
     end
     #protected end
 
@@ -59,8 +63,6 @@ gatu = Animal.new({nombre:"Gato",edad:19})
 perru = Animal.new({nombre:"Perro",edad:1})
 perru.nombre = "Perro"
 puts perru.toString
-
-
 
 gatu.especie = 'Felino' #El attr_writer hace un Set al hacer cualquier asignación al atributo
 gatu.edad = 10
