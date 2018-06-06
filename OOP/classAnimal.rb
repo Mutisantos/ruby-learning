@@ -5,33 +5,67 @@
 
 class Animal
       
+    #Permisos de atributos (Evita crear gets y sets)
+    attr_reader :reino #Solo lectura
+    attr_writer :especie #Solo escritura
+    attr_accessor :edad #Lectura y Escritura
+    attr_accessor :variableDeClase
+    attr_accessor :nombre
     #En el constructor se definen los atributos asignables por un hash
     def initialize(params)
-        @nombre = params[:nombre]
-        @especie = params[:especie]
-        @edad = params[:edad]
-        @reino = 'Animal' #valores por defecto
-        @@variableDeClase = 1
+       # El encapsulamiento permite proteger y delimitar los atributos de clase
+       @nombre = params[:nombre] 
+       @especie = params[:especie]
+       @edad = params[:edad] 
+       @reino = 'Animal' 
+       @@variableDeClase = 0
     end
 
-    #Equivale a un setter
-    #El @ funciona como el this en java
-    def nombre=(nombre)
-        @nombre = nombre
+    #Por defecto todo es publico
+    def metodoPublico ()
+        "#{@@variableDeClase}:Soy un #{@reino}" 
     end
 
-    
     def toString()
-        "Me llamo #{@nombre} y tengo #{@edad} años"
+        metodoPrivado1()
+        "#{@@variableDeClase}:Me llamo #{@nombre} y tengo #{@edad} años" 
     end
+
+    #Usar self permite crear metodos estáticos, que no requieren de la existencia del objeto para ejecutarse
+    def self.calculoEstatico(multi)
+        @@variableDeClase * multi
+    end
+    #public end
+
+
+    #Metodos protegidos son heredables
+    protected #Todos los metodos despues de protected son protegidos
+    def metodoProtegido1()
+
+    end
+    #protected end
+
+
+    #Metodos solo accesibles dentro de la clase, no desde las instancias
+    private #Todos los metodos debajo del private se vuelven private
+    def metodoPrivado1()
+        @@variableDeClase = @@variableDeClase + 1
+    end
+    #private end
 end
 
 
-
-perru = Animal.new({})
+gatu = Animal.new({nombre:"Gato",edad:19})
+perru = Animal.new({nombre:"Perro",edad:1})
 perru.nombre = "Perro"
 puts perru.toString
 
 
-gatu = Animal.new({nombre:"Gato",edad:19})
+
+gatu.especie = 'Felino' #El attr_writer hace un Set al hacer cualquier asignación al atributo
+gatu.edad = 10
+puts gatu.nombre + " " + gatu.reino + " " + gatu.edad.to_s 
 puts gatu.toString
+puts Animal.calculoEstatico(100)
+
+
