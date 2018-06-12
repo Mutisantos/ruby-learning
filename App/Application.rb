@@ -7,4 +7,7 @@
 # Instalar el Cliente de Heroku (CLI)
 # heroku login
 # crear un Gemfile que tenga en cuenta las gemas de la aplicación, puma y openssl
-# bundle install puma
+# bundle install 
+# iniciar un repositorio en git y darle commit a los archivos del app
+# heroku create <nombre-app>
+# 
